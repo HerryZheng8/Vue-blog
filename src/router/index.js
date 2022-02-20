@@ -16,7 +16,7 @@ export default new Router({
   routes: [
     {
       path: '/',
-      component: Ok
+      component: Index
     },
     {
       path: '/login',

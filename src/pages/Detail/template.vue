@@ -760,6 +760,6 @@
   </div>
 </template>
 
-<script src="./template.js"></script>
+<script src="./template.ts"></script>
 
 <style src="./template.less" lang="less"></style>
