@@ -4,26 +4,58 @@
       <h1>Let's share</h1>
       <p>精品博客汇聚</p>
       <div class="btns">
-        <el-button>立即登录</el-button>
-        <el-button>注册账号</el-button>
+        <router-link to="/login"><el-button>立即登录</el-button></router-link>
+        <router-link to="/register"><el-button>注册账号</el-button></router-link>
       </div>
     </template>
     <template v-if="isLogin">
       <h1>Let's share</h1>
       <i class="edit el-icon-edit"></i>
-      <img class="avatar" src="http://cn.gravatar.com/avatar/1?s=128&d=identicon" alt="">
+<!--      <img class="avatar" :src="user.avatar" :alt="user.username" :title="user.username">-->
+      <ul>
+        <li>
+          <router-link to="my">我的</router-link>
+        </li>
+        <li><a href="#" @click="onLogout">注销</a></li>
+      </ul>
     </template>
   </header>
 </template>
 
 <script>
 
+import auth from '../api/auth.ts'
+
+window.auth = auth
+
+import {mapState, mapGetters, mapActions, mapMutations} from 'vuex'
+
 export default {
-  data(){
-    return{
-      isLogin:false
+  data() {
+    return {
+      isLogin: false
     }
-  }
+  },
+  computed: {
+    ...mapGetters([
+      'isLogin',
+      'user'
+    ])
+  },
+
+  created() {
+    this.checkLogin()
+  },
+  methods: {
+    ...mapActions([
+      "checkLogin",
+      'logout'
+    ]),
+    onLogout() {
+      this.logout()
+    }
+  },
+
 }
 
 </script>
@@ -32,39 +64,39 @@ export default {
 
 @import "../assets/base.less";
 
-header.no-login{
+header.no-login {
   padding: 0 12% 30px 12%;
   background: @bgColor;
   display: grid;
   justify-items: center;
 
-  h1{
-    color:#fff;
+  h1 {
+    color: #fff;
     font-size: 40px;
     margin: 60px 0 0 0;
     text-transform: uppercase;
   }
 
-  p{
+  p {
     margin: 15px 0 0 0;
     color: #ffffff;
   }
 
-  .btns{
+  .btns {
     margin-top: 20px;
   }
 
-  button{
+  button {
     margin: 20px 5px 0;
   }
 }
 
-header.login{
+header.login {
   display: flex;
   align-items: center;
   background: @bgColor;
 
-  h1{
+  h1 {
     margin: 0;
     padding: 0;
     color: #fff;
@@ -73,12 +105,12 @@ header.login{
     flex: 1;
   }
 
-  .edit{
+  .edit {
     color: #fff;
     font-size: 30px;
   }
 
-  .avatar{
+  .avatar {
     width: 40px;
     height: 10px;
     border: 1px solid #fff;
