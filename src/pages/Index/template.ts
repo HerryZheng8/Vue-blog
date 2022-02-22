@@ -1,20 +1,34 @@
+import blog from '../../api/blog.js'
+
 export default {
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      blogs: [],
+      total: 0,
+      page: 1
     }
   },
-  methods:{
-    onClick1(){
-      this.$message.error('错了哦，这是一条错误消息');
-    },
-    onClick2(){
-      this.$alert('哈哈哈傻瓜，点进来了吧', '铸币', {
-        confirmButtonText: '2333',
-        callback: action => {
-          this.$message.success('已完成')
-        }
-      });
+
+  created() {
+    this.page = parseInt(this.$route.query.page) || 1
+    blog.getIndexBlogs({ page: this.page }).then(res => {
+      console.log(res)
+      this.blogs = res.data
+      this.total = res.total
+      this.page = res.page
+    })
+  },
+
+  methods: {
+    onPageChange(newPage) {
+      console.log(newPage)
+      blog.getIndexBlogs({ page: newPage }).then(res => {
+        console.log(res)
+        this.blogs = res.data
+        this.total = res.total
+        this.page = res.page
+        this.$router.push({ path: '/', query: { page: newPage}})
+      })
     }
   }
 }

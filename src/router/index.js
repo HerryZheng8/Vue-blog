@@ -62,38 +62,38 @@ const router =  new Router({
   routes: [
     {
       path: '/',
-      component: () => import('@/pages/Index/template.vue')
+      component: () => import('../pages/Index/template.vue')
     },
     {
       path: '/login',
-      component: () => import('@/pages/Login/template.vue')
+      component: () => import('../pages/Login/template.vue')
     },
     {
       path: '/detail/:blogId',
-      component: () => import('@/pages/Detail/template.vue')
+      component: () => import('../pages/Detail/template.vue')
     },
     {
       path: '/edit/:blogId',
-      component: () => import('@/pages/Edit/template.vue'),
-      meta: { requiresAuth: true }
+      component: () => import('../pages/Edit/template.vue'),
+      // meta: { requiresAuth: true }
     },
     {
       path: '/create',
-      component: () => import('@/pages/Create/template.vue'),
-      meta: { requiresAuth: true }
+      component: () => import('../pages/Create/template.vue'),
+      // meta: { requiresAuth: true }
     },
     {
       path: '/user/:userId',
-      component: () => import('@/pages/User/template.vue')
+      component: () => import('../pages/User/template.vue')
     },
     {
       path: '/my',
-      component: () => import('@/pages/My/template.vue'),
-      meta: { requiresAuth: true }
+      component: () => import('../pages/My/template.vue'),
+      // meta: { requiresAuth: true }
     },
     {
       path: '/register',
-      component: () => import('@/pages/Register/template.vue')
+      component: () => import('../pages/Register/template.vue')
     }
   ]
 })

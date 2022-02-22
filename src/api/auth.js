@@ -1,5 +1,4 @@
-// @ts-ignore
-import request from '@/helpers/request'
+import request from '../helpers/request'
 
 const URL = {
   REGISTER:'/auth/register',
@@ -16,6 +15,7 @@ export default {
     return request(URL.LOGIN,'POST',{ username,password })
   },
   logout(){
+    localStorage.removeItem('token')
     return request(URL.LOGOUT)
   },
   getInfo(){

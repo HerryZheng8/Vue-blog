@@ -4,7 +4,7 @@
   </footer>
 </template>
 
-<style lang="less">
+<style scoped lang="less">
 footer{
   align-self: end;
   background-color: #d7d7d7;
