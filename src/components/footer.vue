@@ -1,6 +1,6 @@
 <template>
   <footer>
-    <p>2022 wechat：15806073604</p>
+    <p>© 2022 wechat：18030197443</p>
   </footer>
 </template>
 
