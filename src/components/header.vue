@@ -24,16 +24,16 @@
 
 <script>
 
-import auth from '../api/auth.js'
-
+import auth from '../api/auth'
 window.auth = auth
 
-import {mapGetters, mapActions} from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
   data() {
     return {}
   },
+
   computed: {
     ...mapGetters([
       'isLogin',
@@ -44,21 +44,23 @@ export default {
   created() {
     this.checkLogin()
   },
+
   methods: {
     ...mapActions([
-      "checkLogin",
+      'checkLogin',
       'logout'
     ]),
+
     onLogout() {
       this.logout()
     }
-  },
+  }
 
 }
-
 </script>
 
-<style lang="less">
+
+<style  lang="less">
 
 @import "../assets/base.less";
 
@@ -77,7 +79,7 @@ header.no-login {
 
   p {
     margin: 15px 0 0 0;
-    color: #ffffff;
+    color: #fff;
   }
 
   .btns {
@@ -88,6 +90,7 @@ header.no-login {
     margin: 20px 5px 0;
   }
 }
+
 
 header.login {
   display: flex;
@@ -100,7 +103,8 @@ header.login {
     font-size: 40px;
     text-transform: uppercase;
     flex: 1;
-    a{
+
+    a {
       color: #fff;
     }
   }
@@ -112,10 +116,45 @@ header.login {
 
   .avatar {
     width: 40px;
-    height: 10px;
+    height: 40px;
     border: 1px solid #fff;
     border-radius: 50%;
     margin-left: 15px;
   }
+
+  .user {
+    position: relative;
+
+    ul {
+      display: none;
+      position: absolute;
+      right: 0;
+      list-style: none;
+      border: 1px solid #eaeaea;
+      margin:0;
+      padding: 0;
+      background-color: #fff;
+
+      a {
+        text-decoration: none;
+        color: #333;
+        font-size: 12px;
+        display: block;
+        padding: 5px 10px;
+
+        &:hover {
+          background-color: #eaeaea;
+        }
+      }
+
+    }
+
+    &:hover ul {
+      display: block;
+    }
+  }
 }
+
+
+
 </style>
