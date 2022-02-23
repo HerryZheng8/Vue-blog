@@ -1,5 +1,5 @@
 // @ts-ignore
-import marked from 'marked'
+import {marked} from 'marked'
 import blog from '../../api/blog.js'
 
 export default {

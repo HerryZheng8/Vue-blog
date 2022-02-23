@@ -10,7 +10,7 @@
 
 <script>
 
-import Header from './components/header'
+import Header from './components/header.vue'
 import Footer from './components/footer.vue'
 
 export default {
@@ -36,7 +36,7 @@ export default {
   #header{
     grid-area: header;
     padding-left:12%;
-    padding-right: 12%;
+    padding-right:12%;
   }
 
   #main{
@@ -51,11 +51,11 @@ export default {
 
 @media (max-width: 768px){
   #app{
-    grid-template-columns: 10px auto 10px;
+    grid-template-columns: 0.1vm auto 0.1vm;
 
     #header,#footer{
-      padding-left: 10px;
-      padding-right: 10px;
+      padding-left: 10%;
+      padding-right: 10%;
     }
   }
 }

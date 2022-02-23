@@ -3,17 +3,18 @@ import {mapActions} from "vuex";
 export default {
   data () {
     return {
-      username:'',
-      password:''
+      username: '',
+      password: ''
     }
   },
-  methods:{
+
+  methods: {
     ...mapActions(['login']),
 
-    onLogin(){
-      this.login({username:this.username,password:this.password})
+    onLogin() {
+      this.login({username: this.username, password: this.password})
         .then(()=>{
-          this.$router.push({path:this.$router.query.redirect || '/'})
+          this.$router.push({path: '/'})
         })
     }
   }
