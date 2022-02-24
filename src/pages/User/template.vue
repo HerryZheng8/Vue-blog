@@ -11,8 +11,10 @@
           <span class="month">{{splitDate(blog.createdAt).month}}月</span>
           <span class="year">{{splitDate(blog.createdAt).year}}</span>
         </div>
-        <h3>{{blog.title}}</h3>
-        <p>{{blog.description}}</p>
+        <article class="userDetail">
+          <h3 style="color: black">{{blog.title}}</h3>
+          <p style="color: black">{{blog.description}}</p>
+        </article>
       </router-link>
     </section>
     <section class="pagination">

@@ -135,6 +135,7 @@ header.login {
       margin:0;
       padding: 0;
       background-color: #fff;
+      word-break: keep-all;
 
       a {
         text-decoration: none;

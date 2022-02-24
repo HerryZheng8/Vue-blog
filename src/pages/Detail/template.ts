@@ -2,6 +2,7 @@
 import {marked} from 'marked'
 import blog from '../../api/blog.js'
 
+
 export default {
   data () {
     return {
@@ -26,6 +27,6 @@ export default {
   computed: {
     markdown() {
       return marked(this.rawContent)
-    }
+    },
   }
 }
